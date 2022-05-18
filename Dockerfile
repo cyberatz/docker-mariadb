@@ -1,8 +1,8 @@
-FROM mariadb:10.8
+FROM mariadb:10.7
 LABEL author="andrevs@gmail.com"
 LABEL version="1.0"
-RUN apt-key adv — fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc' 
-RUN add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.host.ag/mariadb/repo/10.8/ubuntu impish main' 
+RUN apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc' 
+RUN add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.host.ag/mariadb/repo/10.8/ubuntu focal main' 
 RUN apt update \
   && apt-get install mariadb-plugin-connect -y \
   && apt-get install software-properties-common -y \
