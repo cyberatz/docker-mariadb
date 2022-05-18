@@ -2,12 +2,14 @@ FROM mariadb:10.7
 LABEL author="andrevs@gmail.com"
 LABEL version="1.0"
 RUN 
-RUN apt update \
+RUN apt update && apt-upgrade -y \
   && apt install openjdk-8-jdk -y \
-  && export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64 \
-  && apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-  && apt install software-properties-common \
-  && add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.host.ag/mariadb/repo/10.8/ubuntu focal main' 
+  && export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64 
+  && apt install software-properties-common 
+  #&& apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+  #&& add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.host.ag/mariadb/repo/10.7/ubuntu focal main' 
+RUN curl -LsS -O https://downloads.mariadb.com/MariaDB/mariadb_repo_setup \
+  && bash mariadb_repo_setup --mariadb-server-version=10.7  
   && apt update \
   && apt-get install mariadb-plugin-connect -y 
   
