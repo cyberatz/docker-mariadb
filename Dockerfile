@@ -2,8 +2,8 @@ FROM mariadb:10.7
 LABEL author="andrevs@gmail.com"
 LABEL version="1.0"
 RUN 
-RUN apt update && apt upgrade -y \
-  && apt install openjdk-8-jdk -y \
+RUN apt update && apt upgrade -y 
+RUN apt install openjdk-8-jdk -y \
   && export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64 \
   && apt install software-properties-common 
   #&& apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
