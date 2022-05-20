@@ -3,7 +3,6 @@ LABEL author="andrevs@gmail.com"
 LABEL version="1.0"
 RUN 
 RUN apt update \
-  && apt upgrade -y \
   && apt install openjdk-8-jdk -y \
   && export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64 
 
@@ -12,7 +11,7 @@ RUN apt update \
   #&& add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.host.ag/mariadb/repo/10.7/ubuntu focal main' 
 RUN curl -LsS -O https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 RUN bash mariadb_repo_setup --mariadb-server-version=10.7 
-RUN apt update 
+RUN apt update && apt upgrade -y 
 RUN apt-get install mariadb-plugin-connect -y 
   
 
