@@ -10,10 +10,10 @@ RUN apt update \
   #&& install -y software-properties-common \
   #&& apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
   #&& add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.host.ag/mariadb/repo/10.7/ubuntu focal main' 
-RUN curl -LsS -O https://downloads.mariadb.com/MariaDB/mariadb_repo_setup \
-  && bash mariadb_repo_setup --mariadb-server-version=10.7 \
-  && apt update \
-  && apt-get install mariadb-plugin-connect -y 
+RUN curl -LsS -O https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+RUN bash mariadb_repo_setup --mariadb-server-version=10.7 
+RUN apt update 
+RUN apt-get install mariadb-plugin-connect -y 
   
 
 COPY ./jars/wrapper/* /usr/lib/mysql/plugin/
