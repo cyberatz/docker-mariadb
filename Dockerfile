@@ -1,4 +1,4 @@
-FROM mariadb:10.7
+FROM mariadb:latest
 LABEL author="andrevs@gmail.com"
 LABEL version="1.0"
 RUN apt update \
