@@ -1,11 +1,11 @@
-FROM mariadb:latest
+FROM mariadb:11.6.2
 LABEL author="andrevs@gmail.com"
 LABEL version="1.0"
 RUN apt update \
   && apt install curl locales openjdk-8-jdk -y \
   && export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64 \
   && curl -LsS -O https://downloads.mariadb.com/MariaDB/mariadb_repo_setup \
-  && bash mariadb_repo_setup --mariadb-server-version=10.7 \
+  && bash mariadb_repo_setup --mariadb-server-version=11.6.2 \
   && apt update \
   && apt-get install mariadb-plugin-connect -y \
   && echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/default/locale \
