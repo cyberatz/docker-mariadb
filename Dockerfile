@@ -1,4 +1,5 @@
-FROM mariadb:11.6.2
+#FROM mariadb:11.6.2
+FROM mariadb:lts-ubi
 LABEL author="andrevs@gmail.com"
 LABEL version="1.0"
 RUN apt update \
