@@ -1,7 +1,7 @@
 #FROM mariadb:11.6.2
-FROM mariadb:lts-ubi
+FROM --platform=linux/arm64 mariadb:lts-ubi
 LABEL author="andrevs@gmail.com"
-LABEL version="1.0"
+LABEL version="1.1"
 RUN apt update \
   && apt install curl locales openjdk-8-jdk -y \
   && export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64 \
