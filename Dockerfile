@@ -15,7 +15,7 @@ RUN apt update \
 #  && ACCEPT_EULA=Y dpkg -i msodbcsql18_18.0.1.1-1_amd64.deb \
 #  && rm msodbcsql18_18.0.1.1-1_amd64.deb \
 #  && apt-get -qq clean
-  #&& apt upgrade -y
+  && apt upgrade -y
   
 #COPY ./jars/wrapper/* /usr/lib/mysql/plugin/
 #COPY ./jars/jdbc/* /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/
